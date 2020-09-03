@@ -78,20 +78,20 @@ jobs:
         # A file, directory or wildcard pattern that describes what to upload
         path: repository_data
 
-    - name: create zip
-      run: python -c "import shutil; shutil.make_archive('data', 'zip')"
-      working-directory: repository_data
+ #   - name: create zip
+ #     run: python -c "import shutil; shutil.make_archive('data', 'zip')"
+ #     working-directory: repository_data
 
-    - name: ls
-      run: ls -R
+ #   - name: ls
+ #     run: ls -R
 
-    - name: Upload results to release
-      uses: svenstaro/upload-release-action@v1-release
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: repository_data/data.zip
-        asset_name: ${{github.event.issue.title}}.zip
-        tag: ${{github.event.issue.title}}_${{github.event.issue.number}}
+ #   - name: Upload results to release
+ #     uses: svenstaro/upload-release-action@v1-release
+ #     with:
+ #       repo_token: ${{ secrets.GITHUB_TOKEN }}
+ #       file: repository_data/data.zip
+ #       asset_name: ${{github.event.issue.title}}.zip
+ #       tag: ${{github.event.issue.title}}_${{github.event.issue.number}}
 
     - name: Close Issue
       continue-on-error: true
